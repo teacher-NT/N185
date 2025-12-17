@@ -1,28 +1,67 @@
 import os
 os.system("cls")
 
-set1 = {1,2,3,4,5,6,7,8,9,10,11,12}
-set2 = {4,5,6,7,8,9}
+car = {
+    "brand": "BYD",
+    "model": "Song Plus",
+    "narxi": 21000,
+    "rang": "qora",
+    "yil": 2024
+}
 
-# print(set2.issubset(set1))
-# print(set1.issuperset(set2))
+# print(car['bran'])
+# print(car.get("bran", "Bunday kalit yo'q"))
 
-# set3 = set1.intersection(set2)
-# print(set3)
+# k = list(car.keys())
+# print(k[0])
 
-# set1.intersection_update(set2)
-# print(set1)
+# v = list(car.values())
+# print(v)
 
-# set3 = set1.difference(set2)
-# print(set3)
+# car.pop('yil')
+# print(car)
 
-# set1.difference_update(set2)
-# print(set1)
+# items = list(car.items())
+# print(items)
+# for  k, v in car.items():
+#     print(k, v)
+
+# t = car.popitem()
+# print(car)
+# print(t)
 
 
-# set3 = set1.symmetric_difference(set2)
-# print(set3)
+# car["brand"] = "BMW"
+# car['model'] = "M5"
+# car["rang"] = "Moviy"
+# car["yil"] = 2023
+car.update({"brand":"BMW", "model":"M5", "rang":"Moviy", "yil":2023, 'probeg':5000})
+print(car)
 
-# set1.symmetric_difference_update(set2)
-# print(set1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# print(car)
+
+# car["probeg"] = 1500
+# car['rang'] = "Ko'k"
+# print(car["model"], car["narxi"], car['probeg'], car['rang'])
+
+# if "rang" in car:
+#     print("Yes!")
+# else:
+#     print("No!")
+
+# for i in car:
+#     print(i, car[i])
 
