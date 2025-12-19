@@ -1,67 +1,48 @@
 import os
 os.system("cls")
 
-car = {
-    "brand": "BYD",
-    "model": "Song Plus",
-    "narxi": 21000,
-    "rang": "qora",
-    "yil": 2024
-}
+# =======================================================
+# for i in range(10, 20, 2):
+#     print(i)
 
-# print(car['bran'])
-# print(car.get("bran", "Bunday kalit yo'q"))
+# def func1(*args):
+#     print(args)
+#     # s = 0
+#     # for i in m:
+#     #     s += i
+#     s = sum(args)
+#     print(s)
 
-# k = list(car.keys())
-# print(k[0])
+# func1(1,2)
 
-# v = list(car.values())
-# print(v)
+# ========================================================
+def func2(**kwargs):
+    # print(kwargs)
+    for k, v in kwargs.items():
+        print(k,v)
 
-# car.pop('yil')
-# print(car)
+# func2(ism="Alisher", yosh=19, vazn=66.5)
 
-# items = list(car.items())
-# print(items)
-# for  k, v in car.items():
-#     print(k, v)
+# =======================================================
 
-# t = car.popitem()
-# print(car)
-# print(t)
+def func3(a,b):
+    print((a+b)/2)
+# func3(4,6)
 
+func4 = lambda a,b: print((a+b)/2)
+# func4(4,6)
 
-# car["brand"] = "BMW"
-# car['model'] = "M5"
-# car["rang"] = "Moviy"
-# car["yil"] = 2023
-car.update({"brand":"BMW", "model":"M5", "rang":"Moviy", "yil":2023, 'probeg':5000})
-print(car)
+# ========================================================
 
+lst = [10,90,85,70,25,36,44,59,60]
 
+def func5(n):
+    return n>=60
+res = list(filter(func5, lst))
+# print(res)
 
-
-
-
-
-
-
-
-
-
-
-
-# print(car)
-
-# car["probeg"] = 1500
-# car['rang'] = "Ko'k"
-# print(car["model"], car["narxi"], car['probeg'], car['rang'])
-
-# if "rang" in car:
-#     print("Yes!")
-# else:
-#     print("No!")
-
-# for i in car:
-#     print(i, car[i])
-
+ages = [14,20,16,15,14,18,20,14,22,15,20,18,18]
+def func6(n):
+    return n+1
+res = list(map(func6, ages))
+# print(res)
