@@ -1,6 +1,7 @@
 import os
 os.system("cls")
 
+# pip install opencv-python
 import cv2
 
 camera = cv2.VideoCapture(0)
