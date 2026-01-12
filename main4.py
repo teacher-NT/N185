@@ -1,28 +1,15 @@
 import os
 os.system("cls")
 
-class A:
-    def run(self):
-        print("A is runing...")
+class Animal:
+    def __init__(self, name):
+        self.name = name
 
-class B(A):
-    def run(self):
-        print("B is runing...")
+class Dog(Animal):
+    def __init__(self, name, sound):
+        super().__init__(name)
+        self.sound = sound
 
-class C(A):
-    def run(self):
-        print("C is runing...")
-
-class D(B,C,A):
-    pass
-
-print(D.mro())
-
-
-# class E(D, C):
-#     pass
-
-# e1 = E()
-# e1.run()
-# d1 = D()
-# d1.run()
+nmadr = Dog("Bobik", "wooof")
+print("Nomi:", nmadr.name)
+print("Ovozi:", nmadr.sound)
