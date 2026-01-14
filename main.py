@@ -1,32 +1,34 @@
 import os
 os.system("cls")
 
-class Transport:
-    def __init__(self, o_k, rang, brand, model, narx):
-        self.o_k = o_k
-        self.rang = rang
+class Car:
+    def __init__(self, brand, model, rang, narx):
         self.brand = brand
         self.model = model
+        self.rang = rang
         self.narx = narx
+    
+    def __str__(self):
+        return f"{self.brand} - {self.model}"
+    
+    def __add__(self, n):
+        self.narx += n
+        print("add metodi ishladi")
+    
+    def __sub__(self, n):
+        self.narx -= n
 
-    def move(self):
-        print("Transport harakatlanmoqda...")
+    def __gt__(self, n):
+        return self.narx > n
+    
+    def __lt__(self, n):
+        return self.narx < n
+    
 
 
-class Car(Transport):
-    def __init__(self,o_k,rang,brand, model, narx, yil, probeg):
-        super().__init__(o_k,rang,brand,model,narx)
-        self.yil = yil
-        self.probeg = probeg
+car1 = Car("GM", "Nexia", "Oq", 15000)
+car1 + 10
+car1 - 500
 
-    def move(self):
-        print("Mashina yurmoqda...")
-
-class Plane(Transport):
-    pass
-
-car1 = Car(500, "Oq", "BMW", "M5", 128000, 2023, 50000)
-car1.move()
-
-plane1 = Plane(800, "Qora", "Boing", "&45", 20_000_000)
-plane1.move()
+print(car1 < 1000)
+print(car1 > 1000)
