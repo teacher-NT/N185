@@ -1,26 +1,42 @@
 import os
 os.system("cls")
 
-class BankAccount:
-    def __init__(self, n, b):
-        self.name = n
-        self.__balans = b
+from abc import ABC, abstractmethod
 
-    def get_balans(self, parol):
-        if parol == "1234":
-            return self.__balans
-        else:
-            return "Parol xato!"
-    
-    def set_balans(self, qiymat, parol):
-        if parol == "1234":
-            self.__balans = qiymat
-        else:
-            print("Parol xato!")
-    
+class Player(ABC):
+    @abstractmethod
+    def run(self):
+        pass
 
-b1 = BankAccount("Ruslan", 1000)
-# b1.name = "Abdulla"
-print(b1.name)
-b1.set_balans(2500, "1234")
-print(b1.get_balans("1234"))
+    @abstractmethod
+    def kick(self):
+        pass
+
+    @abstractmethod
+    def jump(self):
+        pass
+
+
+class Ronaldo(Player):
+    def run(self):
+        print("Running...")
+    def kick(self):
+        print("Kicking...")
+    def jump(self):
+        print("Jumping...")
+    
+class Messi(Player):
+    def run(self):
+        print("Running...")
+    def kick(self):
+        print("Kicking...")
+    def jump(self):
+        print("Jumping...")
+
+    def pas(self):
+        print("Passing...")
+
+r1 = Ronaldo()
+m1 = Messi()
+r1.run()
+m1.pas()
