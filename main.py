@@ -1,38 +1,26 @@
 import os
 os.system("cls")
 
-class Person:
-    def __init__(self, ism,yosh,jins,manzil):
-        self.ism = ism
-        self.yosh = yosh
-        self.jins = jins
-        self.manzil = manzil
+class BankAccount:
+    def __init__(self, n, b):
+        self.name = n
+        self.__balans = b
+
+    def get_balans(self, parol):
+        if parol == "1234":
+            return self.__balans
+        else:
+            return "Parol xato!"
     
-    def __str__(self):
-        return f"Ism: {self.ism}. Yosh: {self.yosh} {self.jins} {self.manzil}"
+    def set_balans(self, qiymat, parol):
+        if parol == "1234":
+            self.__balans = qiymat
+        else:
+            print("Parol xato!")
     
-    def __gt__(self, n):
-        return self.yosh > n
-    
-class Employee:
-    def __init__(self, ism, yosh, jins, manzil, tajriba, maosh):
-        self.ism = ism
-        self.yosh = yosh
-        self.jins = jins
-        self.manzil = manzil
-        self.tajriba = tajriba
-        self.maosh = maosh
 
-    def __str__(self):
-        return f"Ism: {self.ism}. {self.manzil} {self.maosh}"
-
-    def __gt__(self, n):
-        return self.maosh > n
-
-
-
-p1 = Person("Abdulla", 15, "Erkak", "Toshkent sh.")
-e1 = Employee("Vali", 21, "Erkak", "Qo'qon", 3, 500)
-
-print(p1 > 20)
-print(e1 > 20)
+b1 = BankAccount("Ruslan", 1000)
+# b1.name = "Abdulla"
+print(b1.name)
+b1.set_balans(2500, "1234")
+print(b1.get_balans("1234"))
