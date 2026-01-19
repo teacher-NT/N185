@@ -24,16 +24,29 @@ label.move(90, 100)
 label2 = QLabel(oyna)
 label2.setText("0")
 label2.setStyleSheet("font-size:60px;")
-label2.move(160, 150)
+label2.setGeometry(160, 150, 100,50)
 
 def func1():
-    print("Tugmacha bosildi...")
+    son = int(label2.text())
+    son += 1
+    label2.setText(str(son))
+    # print("Tugmacha bosildi...")
+    
 
 btn1 = QPushButton(oyna)
-btn1.setText("Meni bos")
+btn1.setText("Count")
 btn1.setStyleSheet("background-color: #c9eb0c; color:black; font-size:25px; width:150px;height:50px;border-radius:25px;")
-btn1.move(130,250)
+btn1.move(180,250)
 btn1.clicked.connect(func1)
+
+def reset():
+    label2.setText("0")
+
+btn2 = QPushButton(oyna)
+btn2.setText("Reset")
+btn2.setStyleSheet("background-color: red; color:black; font-size:25px; width:110px;height:50px;border-radius:25px;")
+btn2.move(40,250)
+btn2.clicked.connect(reset)
 
 
 oyna.show()
