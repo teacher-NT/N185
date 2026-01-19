@@ -1,42 +1,29 @@
 import os
 os.system("cls")
 
-from abc import ABC, abstractmethod
+from PyQt5.QtWidgets import (QApplication, QWidget,QLabel)
+from PyQt5.QtGui import QFont
 
-class Player(ABC):
-    @abstractmethod
-    def run(self):
-        pass
-
-    @abstractmethod
-    def kick(self):
-        pass
-
-    @abstractmethod
-    def jump(self):
-        pass
+font1 = QFont("Lobster", 20)
 
 
-class Ronaldo(Player):
-    def run(self):
-        print("Running...")
-    def kick(self):
-        print("Kicking...")
-    def jump(self):
-        print("Jumping...")
-    
-class Messi(Player):
-    def run(self):
-        print("Running...")
-    def kick(self):
-        print("Kicking...")
-    def jump(self):
-        print("Jumping...")
+app = QApplication([])
 
-    def pas(self):
-        print("Passing...")
+oyna = QWidget()
+oyna.setWindowTitle("Couter dasturi")
+oyna.setGeometry(1400, 100, 360, 720)
+oyna.setStyleSheet("background-color: #4bba47;")
 
-r1 = Ronaldo()
-m1 = Messi()
-r1.run()
-m1.pas()
+label = QLabel(oyna)
+label.setText("Qani boshladik")
+label.setFont(font1)
+label.setStyleSheet("color:white;")
+label.move(90, 100)
+
+label2 = QLabel(oyna)
+label2.setText("0")
+label2.setStyleSheet("font-size:60px;")
+label2.move(160, 150)
+
+oyna.show()
+app.exec_()
