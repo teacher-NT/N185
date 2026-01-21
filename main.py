@@ -9,7 +9,8 @@ from PyQt5.QtWidgets import (QApplication,
                              QLineEdit,
                              QHBoxLayout, QVBoxLayout,
                              QComboBox,
-                             QCheckBox)
+                             QCheckBox,
+                             QMessageBox)
 from PyQt5.QtGui import QFont
 
 app = QApplication([])
@@ -25,15 +26,15 @@ class Window(QWidget):
         self.label1.setStyleSheet("font-size:20px;color:red;")
         self.btn1 = QPushButton("Qizil")
         self.btn1.setStyleSheet("font-size:25px; border:2px solid black;")
-        self.btn1.clicked.connect(self.press_btn)
+        self.btn1.clicked.connect(self.qizil_tugma)
 
         self.btn2 = QPushButton("Yashil")
         self.btn2.setStyleSheet("font-size:25px; border:2px solid black;")
-        self.btn2.clicked.connect(self.press_btn)
+        self.btn2.clicked.connect(self.yashil_tugma)
 
         self.btn3 = QPushButton("Sariq")
         self.btn3.setStyleSheet("font-size:25px; border:2px solid black;")
-        self.btn3.clicked.connect(self.press_btn)
+        self.btn3.clicked.connect(self.sariq_tugma)
 
         self.btn4 = QPushButton("Ko'k")
         self.btn4.setStyleSheet("font-size:25px; border:2px solid black;")
@@ -97,8 +98,14 @@ class Window(QWidget):
             lst.append(self.check5.text())
         print(lst)
         
+    def sariq_tugma(self):
+        QMessageBox.information(self, "Ma'lumot", "Bu shuncha xabar!")
 
+    def qizil_tugma(self):
+        QMessageBox.warning(self, "Ogohlantirish", "Sizni ogohlantiramiz!")
 
+    def yashil_tugma(self):
+        QMessageBox.question(self, "Savol", "Tovuq birinchi yoki tuhum?")
 win1 = Window()
 win1.show()
 app.exec_()
