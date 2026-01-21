@@ -8,7 +8,8 @@ from PyQt5.QtWidgets import (QApplication,
                              QPushButton,
                              QLineEdit,
                              QHBoxLayout, QVBoxLayout,
-                             QComboBox)
+                             QComboBox,
+                             QCheckBox)
 from PyQt5.QtGui import QFont
 
 app = QApplication([])
@@ -45,6 +46,21 @@ class Window(QWidget):
         self.menyu.currentTextChanged.connect(self.on_change)
         self.v_layout.addWidget(self.menyu)
 
+        self.check1 = QCheckBox("Choy")
+        self.check1.stateChanged.connect(self.on_update)
+        self.check2 = QCheckBox("Kofe")
+        self.check2.stateChanged.connect(self.on_update)
+        self.check3 = QCheckBox("Kola")
+        self.check3.stateChanged.connect(self.on_update)
+        self.check4 = QCheckBox("Suv")
+        self.check4.stateChanged.connect(self.on_update)
+        self.check5 = QCheckBox("Sharbat")
+        self.check5.stateChanged.connect(self.on_update)
+        self.v_layout.addWidget(self.check1)
+        self.v_layout.addWidget(self.check2)
+        self.v_layout.addWidget(self.check3)
+        self.v_layout.addWidget(self.check4)
+        self.v_layout.addWidget(self.check5)
 
         self.v_layout.addWidget(self.label1)
         self.v_layout.addWidget(self.btn1)
@@ -66,6 +82,21 @@ class Window(QWidget):
 
     def on_change(self):
         print(self.menyu.currentText())
+
+    def on_update(self):
+        lst = []
+        if self.check1.isChecked():
+            lst.append(self.check1.text())
+        if self.check2.isChecked():
+            lst.append(self.check2.text())
+        if self.check3.isChecked():
+            lst.append(self.check3.text())
+        if self.check4.isChecked():
+            lst.append(self.check4.text())
+        if self.check5.isChecked():
+            lst.append(self.check5.text())
+        print(lst)
+        
 
 
 win1 = Window()
