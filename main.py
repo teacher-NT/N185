@@ -1,5 +1,6 @@
 import os
 os.system("cls")
+import random as rd
 
 from PyQt5.QtWidgets import (QApplication, 
                              QWidget,
@@ -10,20 +11,26 @@ from PyQt5.QtGui import QFont
 
 app = QApplication([])
 
-oyna = QWidget()
-oyna.setWindowTitle("Couter dasturi")
-oyna.setGeometry(1400, 100, 360, 720)
-oyna.setStyleSheet("background-color: #4bba47;")
+class Window(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setFixedSize(360, 700)
+        self.label1 = QLabel(self)
+        self.label1.setText("Bugun havo yaxshi")
+        self.label1.setStyleSheet("font-size:20px;color:red;")
+        self.label1.move(20,15)
+        self.btn1 = QPushButton(self)
+        self.btn1.setText("Press me")
+        self.btn1.setStyleSheet("font-size:25px; border:2px solid black;")
+        self.btn1.move(20, 55)
+        self.btn1.clicked.connect(self.press_btn)
 
-in1 = QLineEdit(oyna)
-in1.setGeometry(10,20, 250,50)
-in1.setStyleSheet("background-color:white; color:black;font-size:20px;border:2px solid black;")
-in1.setPlaceholderText("nimadir kiriting...")
+    def press_btn(self):
+        colors = ["red", "yellow", "black", "blue", "green"]
+        rand_color = rd.choice(colors)
+        self.label1.setStyleSheet(f"color:{rand_color};font-size:20px;")
 
-btn1 = QPushButton(oyna)
-btn1.setGeometry(270,20, 50,50)
-btn1.setStyleSheet("background-color:white;color:black; font-size:25px; border: 2px solid black;")
-btn1.setText("🔍")
 
-oyna.show()
+win1 = Window()
+win1.show()
 app.exec_()
