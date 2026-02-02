@@ -17,11 +17,14 @@ query1 = """SELECT * FROM users
 query2 = """INSERT INTO users (user_id, username, first_name, last_name, posts_count,followers, followings, joined_date)
     VALUES
     (33,'shamsiddin', 'Shamsiddin', 'Tursunov', 0, 2000, 15000, '2010-11-01')
-
+"""
+query3 = """UPDATE users
+        SET joined_date = '2011-03-29'
+        WHERE user_id = 33;
 """
 
 cursor = mydb.cursor()
-cursor.execute(query2)
+cursor.execute(query3)
 mydb.commit()
 
 
