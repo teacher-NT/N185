@@ -1,122 +1,51 @@
 import os
 os.system("cls")
 
-from PyQt5.QtWidgets import (
-    QApplication, QWidget, QLabel, QPushButton,QVBoxLayout
-)
-from PyQt5.QtCore import Qt
+class Car:
+    def __init__(self, b,m,n,r):
+        self.brand = b
+        self.model = m
+        self.narx = n   
+        self.rang = r
 
-style1 = """
-    font-size:32px;
-    color:black;
-"""
+    def info(self):
+        print(f"{self.brand} {self.model} {self.rang} {self.narx}")
 
-style2 = """
-    font-size: 20px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: #cf3acc;
-    padding: 5px;
-"""
+    def show_price(self):
+        print(self.narx)
 
-style3 = """
-    font-size:40px;
-    color: blue;
-"""
+    def change_price(self, n):
+        if n < 20000:
+            print("Narx 20000dan kichik bo'lmasin")
+        else:
+            self.narx = n
 
-style4 = """
-    font-size: 20px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: #3acf64;
-    padding: 5px;
-"""
+c1 = Car("BMW", "M5", 120000, "qora")
+
+# c1.narx = 25000
+c1.change_price(100000)
+c1.info()
+
+c2 = Car("Chevrolet", "Spark", 6000, "oq")
+c2.info()
+
+car3 = Car("Chevrolet", "Damas", 6000, "oq")
+car3.info()
+
+# print(c1.brand)
+# print(c1.narx)
 
 
-app = QApplication([])
 
-class TranslatorWindow(QWidget):
-    def __init__(self, main_window):
-        super().__init__()
-        self.main_window = main_window
-        self.setFixedSize(400,700)
-        self.vbox = QVBoxLayout()
-        self.label1 = QLabel("Tarjimon")
-        self.label1.setStyleSheet(style3)
-        self.btn1 = QPushButton("Tarjima qilish")
-        # self.btn1.clicked.connect(self.open_translator)
-        self.btn1.setStyleSheet(style4)
 
-        self.btn2 = QPushButton("Bosh Oynaga qaytish")
-        self.btn2.clicked.connect(self.back_main_window)
-        self.btn2.setStyleSheet(style4)
 
-        self.vbox.addWidget(self.label1,  alignment=Qt.AlignCenter | Qt.AlignTop)
-        self.vbox.addWidget(self.btn1)
-        self.vbox.addWidget(self.btn2)
-        self.setLayout(self.vbox)
+# a = 12
+# b = 2.3
+# d = "Salom"
+# e = True
 
-    def back_main_window(self):
-        self.main_window.show()
-        self.hide()
-
-class WeatherWindow(QWidget):
-    def __init__(self, main_window):
-        super().__init__()
-        self.main_window = main_window
-        self.setFixedSize(400,700)
-        self.vbox = QVBoxLayout()
-        self.label1 = QLabel("Ob havo ma'lumotlari")
-        self.label1.setStyleSheet(style3)
-        self.btn1 = QPushButton("Qidirish")
-        # self.btn1.clicked.connect(self.open_translator)
-        self.btn1.setStyleSheet(style4)
-
-        self.btn2 = QPushButton("Bosh Oynaga qaytish")
-        self.btn2.clicked.connect(self.back_main_window)
-        self.btn2.setStyleSheet(style4)
-
-        self.vbox.addWidget(self.label1,  alignment=Qt.AlignCenter | Qt.AlignTop)
-        self.vbox.addWidget(self.btn1)
-        self.vbox.addWidget(self.btn2)
-        self.setLayout(self.vbox)
-
-    def back_main_window(self):
-        self.main_window.show()
-        self.hide()
-
-class MainWindow(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setFixedSize(400,700)
-        self.vbox = QVBoxLayout()
-        self.label1 = QLabel("Telefon")
-        self.label1.setStyleSheet(style1)
-        self.btn1 = QPushButton("Tarjimon")
-        self.btn1.clicked.connect(self.open_translator)
-        self.btn1.setStyleSheet(style2)
-
-        self.btn2 = QPushButton("Ob havo")
-        self.btn2.clicked.connect(self.open_weather)
-        self.btn2.setStyleSheet(style2)
-
-        self.vbox.addWidget(self.label1,  alignment=Qt.AlignCenter | Qt.AlignTop)
-        self.vbox.addWidget(self.btn1)
-        self.vbox.addWidget(self.btn2)
-
-        self.setLayout(self.vbox)
-
-        self.show()
-
-    def open_translator(self):
-        self.window = TranslatorWindow(self)
-        self.window.show()
-        self.hide()
-
-    def open_weather(self):
-        self.window = WeatherWindow(self)
-        self.window.show()
-        self.hide()
-
-Win1 = MainWindow()
-app.exec_()
+# print(type(a))
+# print(type(b))
+# print(type(d))
+# print(type(e))
+# print(type(c1))
