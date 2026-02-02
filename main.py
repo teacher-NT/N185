@@ -23,10 +23,14 @@ query3 = """UPDATE users
         WHERE user_id = 33;
 """
 
-cursor = mydb.cursor()
-cursor.execute(query3)
-mydb.commit()
+query4 = """DELETE FROM users
+    where username is NULL ;
+"""
 
+cursor = mydb.cursor()
+cursor.execute(query4)
+mydb.commit()
+print(cursor.rowcount, "ta qatorda o'zgarish bo'ldi")
 
 # data = cursor.fetchall()
 # for qator in data:
